@@ -5,13 +5,24 @@ using System.Collections;
 public class DragLaunch : MonoBehaviour {
 
 	private Ball ball;
-	private float startTime;
+	private float startTime, ballPosX;
 	private Vector3 startPos, endPos;
+	bool hasBalllaunched = false;
 	
 
 	// Use this for initialization
 	void Start () {
 		ball = GetComponent<Ball>();
+	}
+
+	public void MoveStart(float xNudge) {
+		if (!ball.inPlay) {
+			if(ballPosX > -45 && ballPosX < 45) {
+				ballPosX += xNudge;
+				ball.transform.Translate(new Vector3(xNudge, 0, 0));
+				
+			}
+		}
 	}
 	
 	public void DragStart() {
@@ -30,5 +41,6 @@ public class DragLaunch : MonoBehaviour {
 	
 		Vector3 launchVelocity = new Vector3(launchSpeedX, 0, launchSpeedZ);
 		ball.Launch(launchVelocity);
+	
 	}
 }
