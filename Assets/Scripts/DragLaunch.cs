@@ -7,7 +7,7 @@ public class DragLaunch : MonoBehaviour {
 	private Ball ball;
 	private float startTime, ballPosX;
 	private Vector3 startPos, endPos;
-	bool hasBalllaunched = false;
+
 	
 
 	// Use this for initialization
