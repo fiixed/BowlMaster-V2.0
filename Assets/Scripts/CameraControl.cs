@@ -6,10 +6,12 @@ public class CameraControl : MonoBehaviour {
 	public Ball ball;
 
 	private Vector3 offset;
+	
 
 	// Use this for initialization
 	void Start () {
 		offset = ball.transform.position - transform.position;
+		
 	}
 	
 	// Update is called once per frame
@@ -18,4 +20,6 @@ public class CameraControl : MonoBehaviour {
 			transform.position = ball.transform.position - offset;
 		}
 	}
+
+	
 }

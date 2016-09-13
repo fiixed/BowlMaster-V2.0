@@ -6,14 +6,20 @@ public class PinSetter : MonoBehaviour {
 
 	public int standingCount = -1;
 	public Text standingDisplay;
+	public float distanceToRaise = 40f;
+	public GameObject pinSet;
 	
 	private Ball ball;
 	private float lastChangeTime;
 	private bool ballEnteredBox = false;
+	private Pin[] pins;
+	
 
 	// Use this for initialization
 	void Start () {
 		ball = GameObject.FindObjectOfType<Ball>();
+		pins = GameObject.FindObjectsOfType<Pin>();
+		
 	}
 	
 	// Update is called once per frame
@@ -73,4 +79,22 @@ public class PinSetter : MonoBehaviour {
 		ballEnteredBox = false;
 		standingDisplay.color = Color.green;
 	}
+
+	public void RaisePins() {
+		foreach(Pin pin in pins) {
+			pin.Raise();
+		}
+	}
+
+	public void LowerPins() {
+		foreach(Pin pin in pins) {
+			pin.Lower();
+		}
+	}
+
+	public void RenewPins() {
+		Debug.Log("Renewing Pins");
+		Instantiate(pinSet, new Vector3(0, 0, 1829), Quaternion.identity);
+	}
+
 }
