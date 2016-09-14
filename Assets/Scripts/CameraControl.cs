@@ -7,7 +7,6 @@ public class CameraControl : MonoBehaviour {
 
 	private Vector3 offset;
 	
-
 	// Use this for initialization
 	void Start () {
 		offset = ball.transform.position - transform.position;
@@ -20,6 +19,4 @@ public class CameraControl : MonoBehaviour {
 			transform.position = ball.transform.position - offset;
 		}
 	}
-
-	
 }

@@ -6,7 +6,6 @@ public class PinSetter : MonoBehaviour {
 
 	public int standingCount = -1;
 	public Text standingDisplay;
-	public float distanceToRaise = 40f;
 	public GameObject pinSet;
 	
 	private Ball ball;
@@ -27,7 +26,7 @@ public class PinSetter : MonoBehaviour {
 		standingDisplay.text = CountStanding().ToString();
 
 		if (ballEnteredBox) {
-			CheckStandingCount();
+			UpdateStandingCountAndSettle();
 		}
 	}
 
@@ -55,7 +54,7 @@ public class PinSetter : MonoBehaviour {
 		}	
 	}
 
-	void CheckStandingCount() {
+	void UpdateStandingCountAndSettle() {
 		int currentStanding = CountStanding();
 		
 		if (currentStanding != standingCount) {
@@ -93,7 +92,6 @@ public class PinSetter : MonoBehaviour {
 	}
 
 	public void RenewPins() {
-		Debug.Log("Renewing Pins");
 		Instantiate(pinSet, new Vector3(0, 0, 1829), Quaternion.identity);
 	}
 

@@ -8,8 +8,6 @@ public class DragLaunch : MonoBehaviour {
 	private float startTime, ballPosX;
 	private Vector3 startPos, endPos;
 
-	
-
 	// Use this for initialization
 	void Start () {
 		ball = GetComponent<Ball>();
@@ -19,7 +17,7 @@ public class DragLaunch : MonoBehaviour {
 		if (!ball.inPlay) {
 			if(ballPosX > -45 && ballPosX < 45) {
 				ballPosX += xNudge;
-				ball.transform.Translate(new Vector3(xNudge, 0, 0));
+				ball.transform.Translate(new Vector3(xNudge, 0, 0), Space.World);
 				
 			}
 		}
