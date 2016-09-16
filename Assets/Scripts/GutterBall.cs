@@ -9,10 +9,5 @@ public class GutterBall : MonoBehaviour {
 		pinSetter = GameObject.FindObjectOfType<PinSetter>();
 	}
 
-	void OnTriggerExit(Collider col) {
-		if (col.gameObject.name == "Ball") {
-			pinSetter.SetBallOutOfPlay();
-		}
-		
-	}
+	
 }
